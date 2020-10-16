@@ -53,6 +53,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--maven打包插件的版本，跟springboot版本相同-->
                 <version>${springboot.version}</version>
             </plugin>
         </plugins>
