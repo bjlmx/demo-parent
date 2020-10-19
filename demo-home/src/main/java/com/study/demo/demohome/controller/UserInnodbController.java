@@ -35,27 +35,31 @@ public class UserInnodbController {
      */
     @PostMapping("selectOne/{id}")
     public UserInnodb selectOne(@PathVariable("id") Integer id) {
-        log.info("查询成功");
+        log.info("处理成功");
         return this.userInnodbService.getById(id);
     }
 
     @GetMapping("list")
     public List<UserInnodb> list(){
+        log.info("处理成功");
         return this.userInnodbService.list();
     }
 
     @PutMapping("update")
     public boolean updateUserInnodb(UserInnodb userInnodb) {
+        log.info("处理成功");
         return this.userInnodbService.saveOrUpdate(userInnodb);
     }
 
     @DeleteMapping("delete/{id}")
     public boolean deleteUserInnodb(@PathVariable("id")Integer id) {
+        log.info("处理成功");
         return this.userInnodbService.removeById(id);
     }
 
     @GetMapping("exception")
     public boolean exceptionTest() {
+        log.info("处理成功");
         return this.userInnodbService.exceptionTest(1);
     }
 }

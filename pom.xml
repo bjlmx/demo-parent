@@ -80,6 +80,12 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+            <!--actuator-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

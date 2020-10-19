@@ -10,7 +10,7 @@
 package com.study.demo.demohome.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.study.demo.common.exception.BusinessException;
+import com.study.demo.democommon.exception.BusinessException;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.mapper.UserInnodbMapper;
 import com.study.demo.demohome.service.UserInnodbService;
