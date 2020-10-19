@@ -7,7 +7,7 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demohome.common;
+package com.study.demo.common;
 
 /** @author Baijl
  * 2020/9/19 

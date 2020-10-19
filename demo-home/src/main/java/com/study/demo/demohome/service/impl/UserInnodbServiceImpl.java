@@ -10,6 +10,7 @@
 package com.study.demo.demohome.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.study.demo.common.exception.BusinessException;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.mapper.UserInnodbMapper;
 import com.study.demo.demohome.service.UserInnodbService;
@@ -23,4 +24,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserInnodbServiceImpl extends ServiceImpl<UserInnodbMapper, UserInnodb> implements UserInnodbService  {
+
+    @Override
+    public boolean exceptionTest(int i) {
+        if(1==i){
+            throw BusinessException.get("抛出异常测试");
+        }
+        return false;
+    }
 }

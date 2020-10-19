@@ -3,6 +3,7 @@ package com.study.demo.demohome.controller;
 import com.study.demo.demohome.annotation.CommonReturn;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.service.UserInnodbService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -15,8 +16,10 @@ import java.util.List;
  * @since 2020-10-16 17:03:16
  */
 @RestController
+/*自定义注解：统一封装返回值*/
 @CommonReturn
 @RequestMapping("userInnodb")
+@Slf4j
 public class UserInnodbController {
     /**
      * 服务对象
@@ -32,15 +35,27 @@ public class UserInnodbController {
      */
     @PostMapping("selectOne/{id}")
     public UserInnodb selectOne(@PathVariable("id") Integer id) {
-        UserInnodb byId = this.userInnodbService.getById(id);
-        return byId;
+        log.info("查询成功");
+        return this.userInnodbService.getById(id);
     }
 
     @GetMapping("list")
     public List<UserInnodb> list(){
-//        userService.exceptionTest();
-        List<UserInnodb> list = userInnodbService.list();
-        return list;
+        return this.userInnodbService.list();
     }
 
+    @PutMapping("update")
+    public boolean updateUserInnodb(UserInnodb userInnodb) {
+        return this.userInnodbService.saveOrUpdate(userInnodb);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public boolean deleteUserInnodb(@PathVariable("id")Integer id) {
+        return this.userInnodbService.removeById(id);
+    }
+
+    @GetMapping("exception")
+    public boolean exceptionTest() {
+        return this.userInnodbService.exceptionTest(1);
+    }
 }

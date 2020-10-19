@@ -7,18 +7,22 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demohome.service;
+package com.study.demo.demohome.demo;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.study.demo.demohome.entity.UserInnodb;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author Baijl
- * 2020/10/16
- * 17:06
+ * 2020/10/19
+ * 10:38
  * @description
  */
-public interface UserInnodbService extends IService<UserInnodb> {
-
-    boolean exceptionTest(int i);
+public class Demo1 {
+    public static void main(String[] args) {
+        final ExecutorService executorService = Executors.newFixedThreadPool(5);
+        executorService.execute(()->{
+            System.out.println(Thread.currentThread().getName()+"在执行任务");
+        });
+    }
 }

@@ -10,15 +10,16 @@
 package com.study.demo.demohome.config;
 
 import cn.hutool.core.annotation.AnnotationUtil;
+import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.ObjectUtil;
+import com.study.demo.common.exception.BusinessException;
 import com.study.demo.demohome.annotation.CommonReturn;
-import com.study.demo.demohome.common.CommonResult;
-import com.sun.org.apache.regexp.internal.RE;
+import com.study.demo.common.CommonResult;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
@@ -30,6 +31,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  */
 @RestControllerAdvice
 public class CommonAdvice implements ResponseBodyAdvice {
+    @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
 //        System.out.println(returnType.getMethod());
 //        System.out.println(returnType.getContainingClass());
@@ -37,16 +39,29 @@ public class CommonAdvice implements ResponseBodyAdvice {
         return AnnotationUtil.hasAnnotation(returnType.getMethod(), CommonReturn.class)||AnnotationUtil.hasAnnotation(returnType.getContainingClass(),CommonReturn.class);
     }
 
+    @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType,
                                   MediaType selectedContentType, Class selectedConverterType,
                                   ServerHttpRequest request, ServerHttpResponse response) {
-        if(body instanceof CommonReturn){
+        if(body instanceof CommonResult){
             return body;
         }
         if(ObjectUtil.isEmpty(body)){
             return new CommonResult("结果为空");
         }
+        if (body instanceof Boolean) {
+            if((Boolean) body){
+                return new CommonResult();
+            }else {
+                return new CommonResult("处理失败");
+            }
+        }
         return new CommonResult(body);
 
+    }
+
+    @ExceptionHandler(value = BusinessException.class)
+    public CommonResult<Object> parseException(BusinessException e){
+        return new CommonResult<>(ExceptionUtil.getSimpleMessage(e));
     }
 }

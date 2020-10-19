@@ -7,18 +7,20 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demohome.service;
-
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.study.demo.demohome.entity.UserInnodb;
+package com.study.demo.common.exception;
 
 /**
  * @author Baijl
- * 2020/10/16
- * 17:06
+ * 2020/10/19
+ * 14:19
  * @description
  */
-public interface UserInnodbService extends IService<UserInnodb> {
+public class BusinessException extends RuntimeException{
+    private BusinessException(String message) {
+        super(message);
+    }
 
-    boolean exceptionTest(int i);
+    public static BusinessException get(String message){
+        return  new BusinessException(message);
+    }
 }

@@ -23,6 +23,7 @@
 
     <modules>
         <module>demo-home</module>
+        <module>demo-common</module>
     </modules>
 
     <dependencyManagement>
@@ -83,5 +84,19 @@
     </dependencyManagement>
 
 
-
+    <build>
+        <!--父工程无需打包插件，但是需要编译插件，编译插件中需要执行jdk版本和字符集-->
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>utf-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
 </project>

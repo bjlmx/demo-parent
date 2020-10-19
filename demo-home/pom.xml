@@ -20,6 +20,12 @@
 
 
     <dependencies>
+        <!--common-->
+        <dependency>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -54,12 +60,25 @@
     </dependencies>
 
     <build>
+        <!--子模块中不需要编译插件，但是需要打包插件
+        需要指定mainClass说明启动类还需要execution标签显示指定创建可执行jar文件-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--maven打包插件的版本，跟springboot版本相同-->
                 <version>${springboot.version}</version>
+                <configuration>
+                    <mainClass>com.study.demo.demohome.DemoHomeApplication</mainClass>
+                </configuration>
+                <!--创建可执行的jar文件-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
