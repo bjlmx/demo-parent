@@ -65,7 +65,7 @@
     </dependencies>
 
     <build>
-        <!--子模块中不需要编译插件，但是需要打包插件
+        <!--子模块中不需要编译插件，但是需要打包插件（web项目）
         需要指定mainClass说明启动类还需要execution标签显示指定创建可执行jar文件-->
         <plugins>
             <plugin>

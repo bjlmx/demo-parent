@@ -1,5 +1,6 @@
 package com.study.demo.demohome.controller;
 
+import cn.hutool.http.HttpUtil;
 import com.study.demo.demohome.annotation.CommonReturn;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.service.UserInnodbService;
@@ -41,7 +42,7 @@ public class UserInnodbController {
 
     @GetMapping("list")
     public List<UserInnodb> list(){
-        log.info("处理成功");
+        log.info("处理OK");
         return this.userInnodbService.list();
     }
 
@@ -62,4 +63,5 @@ public class UserInnodbController {
         log.info("处理成功");
         return this.userInnodbService.exceptionTest(1);
     }
+
 }
