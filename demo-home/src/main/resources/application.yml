@@ -9,6 +9,8 @@ spring:
     url: jdbc:mysql://192.168.159.128:3306/dockertest?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
   lifecycle:
     timeout-per-shutdown-phase: 10s
+  application:
+    name: 'SpringBoot多模块demo工程'
 management:
   endpoint:
     shutdown:
@@ -18,4 +20,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
+# swagger3的配置
+swagger3:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 'V1.1'
+  application-description: 'swagger3.1整合Demo'
+  try-host: http://localhost:${server.port}
