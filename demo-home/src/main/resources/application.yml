@@ -10,7 +10,7 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 10s
   application:
-    name: 'SpringBoot多模块demo工程'
+    name: 'demo-home'
 management:
   endpoint:
     shutdown:

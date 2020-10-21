@@ -1,0 +1,24 @@
+server:
+  port: 6060
+spring:
+  application:
+    name: 'demo-rabbitmq-provider'
+#    配置rabbitmq
+  rabbitmq:
+    host: 192.168.159.128
+    port: 5672
+    username: guest
+    password: guest
+    queueName: demo
+    exchangeName: demoExchange
+#    确认发送到交换机
+    publisher-confirm-type: correlated
+#    确认发送到队列
+    publisher-returns: true
+# swagger3的配置
+swagger3:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 'V1.1'
+  application-description: 'swagger3.1整合Demo'
+  try-host: http://localhost:${server.port}

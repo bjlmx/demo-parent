@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--parent项目信息-->
     <groupId>com.study.demo</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -19,23 +20,41 @@
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <hutool.version>5.4.4</hutool.version>
         <swagger.version>3.0.0</swagger.version>
+        <springcloud.version>Finchley.SR2</springcloud.version>
+        <eureka.version>1.4.7.RELEASE</eureka.version>
     </properties>
 
 
     <modules>
         <module>demo-home</module>
         <module>demo-common</module>
+        <module>demo-rabbitmq-provider</module>
+        <module>demo-rabbitmq-consumer</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-            <!--springboot依赖管理-->
+            <!--springboot依赖管理-，相当于直接引入springboot总依赖，其他的springboot内置的依赖可以直接使用springboot的版本号-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--springcloud，跟springboot引入依赖类似-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+         <!--rabbitmq-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${springboot.version}</version>
             </dependency>
             <!--java web-->
             <dependency>

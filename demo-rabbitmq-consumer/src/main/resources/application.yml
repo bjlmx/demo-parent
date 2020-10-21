@@ -1,0 +1,13 @@
+server:
+  port: 6070
+spring:
+  application:
+    name: 'demo-rabbitmq-consumer'
+  #    配置rabbitmq
+  rabbitmq:
+    host: 192.168.159.128
+    port: 5672
+    username: guest
+    password: guest
+    queueName: demo
+    exchangeName: demoExchange
