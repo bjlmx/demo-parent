@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * @author Baijl
  * 2020/10/21
  * 15:21
- * @description
+ * @description TODO 码云代码上传
  */
 //@Configuration
 public class RabbitMqConsumerConfig {
