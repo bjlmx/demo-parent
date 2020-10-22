@@ -11,10 +11,9 @@ package com.study.demo.demohome.config;
 
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.exceptions.ExceptionUtil;
-import cn.hutool.core.util.ObjectUtil;
 import com.study.demo.democommon.exception.BusinessException;
-import com.study.demo.demohome.annotation.CommonReturn;
 import com.study.demo.democommon.result.CommonResult;
+import com.study.demo.democommon.annotation.CommonReturn;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
@@ -46,9 +45,9 @@ public class CommonAdvice implements ResponseBodyAdvice {
         if(body instanceof CommonResult){
             return body;
         }
-        if(ObjectUtil.isEmpty(body)){
-            return new CommonResult("结果为空");
-        }
+//        if(ObjectUtil.isEmpty(body)){
+//            return new CommonResult("结果为空");
+//        }
         if (body instanceof Boolean) {
             if((Boolean) body){
                 return new CommonResult();

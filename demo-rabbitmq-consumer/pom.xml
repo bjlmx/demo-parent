@@ -33,6 +33,7 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+
         <!--common-->
         <dependency>
             <groupId>com.study.demo</groupId>

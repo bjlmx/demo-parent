@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Baijl
  * 2020/10/21
  * 15:21
- * @description TODO 码云代码上传
+ * @description
  */
 @Configuration
 public class RabbitMqConsumerConfig {

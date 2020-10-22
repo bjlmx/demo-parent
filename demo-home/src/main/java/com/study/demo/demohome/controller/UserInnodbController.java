@@ -1,11 +1,14 @@
 package com.study.demo.demohome.controller;
 
-import com.study.demo.demohome.annotation.CommonReturn;
+import com.study.demo.democommon.annotation.AopFlag;
+import com.study.demo.democommon.util.RedisUtil;
+import com.study.demo.democommon.annotation.CommonReturn;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.service.UserInnodbService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +35,11 @@ public class UserInnodbController {
      */
     @Resource
     private UserInnodbService userInnodbService;
+    /**
+     * Redis工具类
+     */
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 通过主键查询单条数据
@@ -47,6 +55,7 @@ public class UserInnodbController {
     }
 
     @GetMapping("list")
+    @AopFlag
     @ApiOperation("查询用户")
     public List<UserInnodb> list(){
         log.info("处理OK");
@@ -76,5 +85,6 @@ public class UserInnodbController {
         log.info("处理成功");
         return this.userInnodbService.exceptionTest(1);
     }
+
 
 }
