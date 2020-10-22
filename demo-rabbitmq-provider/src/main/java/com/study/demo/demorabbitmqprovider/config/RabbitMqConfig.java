@@ -14,6 +14,7 @@ import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,8 @@ public class RabbitMqConfig {
     private  String queueName;
     @Value("${spring.rabbitmq.exchangeName}")
     private  String exchangeName;
+    @Autowired
+    private ConnectionFactory connectionFactory;
     /**
      * 创建队列持久化
      * @return
@@ -60,11 +63,11 @@ public class RabbitMqConfig {
 
     /**
      * 创建生产端回调函数配置
-     * @param connectionFactory
+     * @param
      * @return
      */
     @Bean
-    public RabbitTemplate createRabbitMQTemplate(ConnectionFactory connectionFactory){
+    public RabbitTemplate createRabbitMQTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate();
         //创建连接工厂
         rabbitTemplate.setConnectionFactory(connectionFactory);

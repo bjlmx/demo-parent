@@ -7,20 +7,14 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demorabbitmqconsumer.listener;
+package com.study.demo.demorabbitmqconsumer.service;
 
 /**
  * @author Baijl
  * 2020/10/21
- * 14:31
- * @description 自动监听类
+ * 17:25
+ * @description
  */
-//@RabbitListener(queues = "demo")
-//@Component
-public class RabbitMqListener {
-
-//    @RabbitHandler
-    public void getMessagingTemplate(String message) {
-        System.out.println("显示消息："+message);
-    }
+public interface RabbitMqService {
+    void async(String s) throws InterruptedException;
 }
