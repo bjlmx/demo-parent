@@ -15,6 +15,10 @@ spring:
     publisher-confirm-type: correlated
 #    确认发送到队列
     publisher-returns: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.159.128:8848
 # swagger3的配置
 swagger3:
   enable: true

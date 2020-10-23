@@ -2,11 +2,12 @@ server:
   port: 5050
   shutdown: graceful
 spring:
+#  MySQL
   datasource:
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://192.168.159.128:3306/dockertest?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.159.128:3307/dockertest?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
   lifecycle:
     timeout-per-shutdown-phase: 10s
   application:
@@ -19,6 +20,10 @@ spring:
     user:
       name: admin
       password: admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.159.128:8848
 #    服务监控设置
 management:
   endpoint:
