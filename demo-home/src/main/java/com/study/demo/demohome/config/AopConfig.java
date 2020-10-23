@@ -10,6 +10,7 @@
 package com.study.demo.demohome.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -46,9 +47,9 @@ public class AopConfig {
 
     //前置通知
     @Before("hasAnnotation()")
-    public void haha() {
+    public void haha(JoinPoint joinPoint) {
         log.info("前置通知，有注解");
-        System.out.println("这是一条前置通知");
+        System.out.println("方法名："+joinPoint.getSignature().getDeclaringTypeName() + "."+joinPoint.getSignature());
     }
 
     //前置通知
