@@ -1,8 +1,9 @@
 package com.study.demo.demohome.controller;
 
 import com.study.demo.democommon.annotation.AopFlag;
-import com.study.demo.democommon.util.RedisUtil;
 import com.study.demo.democommon.annotation.CommonReturn;
+import com.study.demo.democommon.util.RedisUtil;
+import com.study.demo.demohome.dto.UserDto;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.service.UserInnodbService;
 import io.swagger.annotations.Api;
@@ -60,6 +61,17 @@ public class UserInnodbController {
     public List<UserInnodb> list(){
         log.info("处理OK");
         return this.userInnodbService.list();
+    }
+
+    @PostMapping("conditionList")
+    @AopFlag
+    @ApiOperation("查询用户")
+    public Object conditionList(@RequestBody@Validated UserDto userDto, BindingResult result){
+        log.info("处理OK");
+        if(result.hasErrors()){
+            return result.getFieldErrors().stream().map(x->"异常属性："+x.getField()+"，异常原因"+x.getDefaultMessage()).collect(Collectors.toList());
+        }
+        return this.userInnodbService.conditionList(userDto);
     }
 
     @PostMapping("updateOrAdd")

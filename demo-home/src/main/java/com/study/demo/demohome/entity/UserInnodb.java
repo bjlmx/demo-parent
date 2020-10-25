@@ -1,8 +1,7 @@
 package com.study.demo.demohome.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -19,12 +18,12 @@ import java.io.Serializable;
  */
 @Data
 @ApiModel(value = "用户类")
+@TableName
 public class UserInnodb implements Serializable {
     private static final long serialVersionUID = -62260988976878562L;
 
 
     @ApiModelProperty(value = "id")
-    @TableId(type = IdType.AUTO)
     private Integer id;
 
     @TableField

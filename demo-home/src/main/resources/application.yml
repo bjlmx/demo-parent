@@ -1,5 +1,5 @@
 server:
-  port: 5050
+  port: 6666
   shutdown: graceful
 spring:
 #  MySQL
@@ -23,6 +23,7 @@ spring:
   cloud:
     nacos:
       discovery:
+#        springcloudAlibaba nacos注册中心配置
         server-addr: 192.168.159.128:8848
 #    服务监控设置
 management:
@@ -42,3 +43,14 @@ swagger3:
   application-version: 'V1.1'
   application-description: 'swagger3.1整合Demo'
   try-host: http://localhost:${server.port}
+#  mybatisplus全局配置
+mybatis-plus:
+  global-config:
+    db-config:
+#      id自增
+      id-type: auto
+#      表名使用驼峰
+      table-underline: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

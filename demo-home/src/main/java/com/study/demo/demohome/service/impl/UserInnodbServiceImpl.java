@@ -9,11 +9,17 @@
  ***************************************************************************/
 package com.study.demo.demohome.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.study.demo.democommon.exception.BusinessException;
+import com.study.demo.democommon.page.PageVo;
+import com.study.demo.demohome.dto.UserDto;
 import com.study.demo.demohome.entity.UserInnodb;
 import com.study.demo.demohome.mapper.UserInnodbMapper;
 import com.study.demo.demohome.service.UserInnodbService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,12 +30,24 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserInnodbServiceImpl extends ServiceImpl<UserInnodbMapper, UserInnodb> implements UserInnodbService  {
-
+@Autowired
+private UserInnodbMapper userInnodbMapper;
     @Override
     public boolean exceptionTest(int i) {
         if(1==i){
             throw BusinessException.get("抛出异常测试");
         }
         return false;
+    }
+
+    @Override
+    public Object conditionList(UserDto userDto) {
+        Page<UserInnodb> page = new Page<>(userDto.getPageIndex(), userDto.getPageSize());
+        QueryWrapper<UserInnodb> userInnodbQueryWrapper = new QueryWrapper<>();
+        userInnodbQueryWrapper.eq(ObjectUtil.isNotEmpty(userDto.getGender()),"gender",userDto.getGender())
+                .eq(ObjectUtil.isNotEmpty(userDto.getName()),"name",userDto.getName())
+                .eq(ObjectUtil.isNotEmpty(userDto.getPhone()),"phone",userDto.getPhone());
+        Page<UserInnodb> userInnodbPage = userInnodbMapper.selectPage(page, userInnodbQueryWrapper);
+        return new PageVo<>(userInnodbPage.getTotal(),userInnodbPage.getRecords());
     }
 }

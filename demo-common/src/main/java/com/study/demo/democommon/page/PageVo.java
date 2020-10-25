@@ -7,26 +7,22 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demohome.service;
+package com.study.demo.democommon.page;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.study.demo.demohome.dto.UserDto;
-import com.study.demo.demohome.entity.UserInnodb;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Baijl
- * 2020/10/16
- * 17:06
+ * 2020/10/24
+ * 16:37
  * @description
  */
-public interface UserInnodbService extends IService<UserInnodb> {
-
-    boolean exceptionTest(int i);
-
-    /**
-     * 条件查询
-     * @return
-     * @param userDto
-     */
-    Object conditionList(UserDto userDto);
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageVo<T> {
+    private Long total;
+    private T data;
 }
