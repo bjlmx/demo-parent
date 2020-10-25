@@ -1,7 +1,7 @@
 package com.study.demo.demohome.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.study.demo.demohome.entity.UserInnodb;
+import com.study.demo.demodomain.home.UserInnodb;
 
 /**
  * (UserInnodb)表数据库访问层

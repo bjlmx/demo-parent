@@ -10,8 +10,8 @@
 package com.study.demo.demohome.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.study.demo.demodomain.home.UserInnodb;
 import com.study.demo.demohome.dto.UserDto;
-import com.study.demo.demohome.entity.UserInnodb;
 
 /**
  * @author Baijl

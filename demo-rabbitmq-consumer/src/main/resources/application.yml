@@ -1,5 +1,5 @@
 server:
-  port: 6070
+  port: 1020
 spring:
   application:
     name: 'demo-rabbitmq-consumer'
