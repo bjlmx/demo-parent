@@ -8,8 +8,8 @@
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>demo-domain</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>demo-domain</name>
     <description>实体类工程</description>
 

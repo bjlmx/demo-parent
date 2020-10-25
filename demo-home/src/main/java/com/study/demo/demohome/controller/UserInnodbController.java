@@ -67,7 +67,7 @@ public class UserInnodbController {
     @AopFlag
     @ApiOperation("查询用户")
     public Object conditionList(@RequestBody@Validated UserDto userDto, BindingResult result){
-        log.info("处理OK");
+        log.info("热部署处理OK");
         if(result.hasErrors()){
             return result.getFieldErrors().stream().map(x->"异常属性："+x.getField()+"，异常原因"+x.getDefaultMessage()).collect(Collectors.toList());
         }

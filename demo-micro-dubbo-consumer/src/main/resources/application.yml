@@ -1,0 +1,18 @@
+server:
+  port: 2020
+spring:
+  application:
+    name: demo-micro-dubbo-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.159.128:8848
+dubbo:
+  cloud:
+    subscribed-services: demo-micro-dubbo-provider
+  registry:
+    address: spring-cloud://192.168.159.128
+  application:
+    qos-enable: false

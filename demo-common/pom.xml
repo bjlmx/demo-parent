@@ -8,8 +8,8 @@
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>demo-common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>demo-common</name>
     <description>common子模块-公共模块</description>
 

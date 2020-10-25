@@ -9,40 +9,40 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>demo-rabbitmq-consumer</artifactId>
-    <name>demo-rabbitmq-consumer</name>
-    <description>RabbitMq集成SpringBoot消费者</description>
+    <artifactId>demo-micro-dubbo-consumer</artifactId>
+    <name>demo-micro-dubbo-consumer</name>
+    <description>dubbo消费者测试</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        <!--java web-->
+        <!--springcloudAlibaba dubbo-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
-        <!--rabbitmq-->
+        <!--公共接口api模块-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-        <!--hutool-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-common-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--spring cloud Alibaba nacos服务注册与发现-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!--common-->
+        <!--java web-->
         <dependency>
-            <groupId>com.study.demo</groupId>
-            <artifactId>demo-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--actuator 服务监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!--lombok-->
         <dependency>
@@ -50,25 +50,15 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--actuator 服务监控-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--公共api模块-->
-        <dependency>
-            <groupId>com.study.demo</groupId>
-            <artifactId>demo-common-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <!--热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
+<!--        &lt;!&ndash;热部署&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -77,7 +67,7 @@
                 <!--maven打包插件的版本，跟springboot版本相同-->
                 <version>${springboot.version}</version>
                 <configuration>
-                    <mainClass>com.study.demo.demorabbitmqconsumer.DemoRabbitmqConsumerApplication</mainClass>
+                    <mainClass>com.study.demo.demomicrodubboconsumer.DemoMicroDubboConsumerApplication</mainClass>
                 </configuration>
                 <!--创建可执行的jar文件-->
                 <executions>
@@ -90,4 +80,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

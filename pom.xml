@@ -33,6 +33,8 @@
         <module>demo-rabbitmq-consumer</module>
         <module>demo-common-api</module>
         <module>demo-domain</module>
+        <module>demo-micro-dubbo-consumer</module>
+        <module>demo-micro-dubbo-provider</module>
 
     </modules>
 
@@ -106,6 +108,14 @@
                 <optional>true</optional>
                 <version>${lombok.version}</version>
             </dependency>
+            <!--devtools热部署-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <optional>true</optional>
+                <scope>true</scope>
+                <version>${springboot.version}</version>
+            </dependency>
             <!--参数校验-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -142,6 +152,12 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
+            <!--springcloud Alibaba dubbo-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-dubbo</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -154,9 +170,12 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.6.0</version>
                     <configuration>
+                        <!--资源版本-->
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <encoding>utf-8</encoding>
+                        <!--热部署-->
+                        <fork>true</fork>
                     </configuration>
                 </plugin>
             </plugins>

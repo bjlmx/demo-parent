@@ -8,8 +8,8 @@
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>demo-common-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>demo-common-api</name>
     <description>公共api接口项目</description>
 

@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * @description 创建队列和直连交换机
  */
 @Configuration
-public class RabbitMqConfig {
+public class RabbitMqProviderConfig {
     @Value("${spring.rabbitmq.queueName}")
     private  String queueName;
     @Value("${spring.rabbitmq.exchangeName}")
