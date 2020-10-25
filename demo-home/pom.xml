@@ -67,7 +67,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
         <!--hutool-->
         <dependency>

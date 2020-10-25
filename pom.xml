@@ -113,7 +113,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <optional>true</optional>
-                <scope>true</scope>
+                <scope>runtime</scope>
                 <version>${springboot.version}</version>
             </dependency>
             <!--参数校验-->
