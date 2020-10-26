@@ -1,7 +1,14 @@
+#多环境配置
+spring:
+  profiles:
+    active: dev
+---
 server:
   port: 1010
   shutdown: graceful
 spring:
+  #        开发环境
+  profiles: dev
 #  MySQL
   datasource:
     username: root
@@ -11,20 +18,17 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 10s
   application:
-    name: 'demo-home'
+    name: demo-home
 #    redis配置
   redis:
     port: 6379
     host: 192.168.159.128
-  security:
-    user:
-      name: admin
-      password: admin
   cloud:
     nacos:
       discovery:
 #        springcloudAlibaba nacos注册中心配置
         server-addr: 192.168.159.128:8848
+
 #    服务监控设置
 management:
   endpoint:
@@ -53,4 +57,40 @@ mybatis-plus:
       table-underline: true
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+---
+spring:
+#  生产环境
+  profiles: pro
+#  redis配置
+  redis:
+    port: 6379
+  datasource:
+    url: jdbc:mysql://192.168.159.128:3306/nacos?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    password: nacos
+    username: nacos
+#    注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.159.128:8848
+        #  mybatisplus全局配置
+  application:
+    name: demo-home-pro
+mybatis-plus:
+  global-config:
+    db-config:
+      #      id自增
+      id-type: auto
+      #      表名使用驼峰
+      table-underline: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# swagger3的配置
+swagger3:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 'V1.1'
+  application-description: 'swagger3.1整合Demo'
+  try-host: http://localhost:${server.port}
+server:
+  port: 9999
