@@ -18,16 +18,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <dependencies>
-        <!--java web-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--rabbitmq-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
         <!--common-->
         <dependency>
             <groupId>com.study.demo</groupId>
@@ -40,15 +30,22 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--spring cloud Alibaba nacos服务注册与发现-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
+        </dependency>
+        
+        <!--springboot start-->
+        <!--java web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--rabbitmq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <!--actuator 服务监控-->
         <dependency>
@@ -62,6 +59,15 @@
             <optional>true</optional>
             <scope>runtime</scope>
         </dependency>
+        <!--springboot end-->
+
+        <!--springcloudAlibaba start-->
+        <!--nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--springcloudAlibaba end-->
     </dependencies>
     <build>
         <plugins>

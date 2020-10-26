@@ -9,6 +9,9 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.159.128:8848
+#      配置中心地址
+      config:
+        server-addr: 192.168.159.128:8848
 dubbo:
   protocol:
     name: dubbo

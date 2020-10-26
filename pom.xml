@@ -18,10 +18,8 @@
         <lombok.version>1.18.12</lombok.version>
         <druid.version>1.1.24</druid.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
-        <hutool.version>5.4.4</hutool.version>
+        <hutool.version>5.4.6</hutool.version>
         <swagger.version>3.0.0</swagger.version>
-<!--        <springcloud.version>Finchley.SR2</springcloud.version>-->
-<!--        <eureka.version>1.4.7.RELEASE</eureka.version>-->
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
@@ -48,14 +46,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--springcloud，跟springboot引入依赖类似-->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>${springcloud.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
             <!--SpringCloud Alibaba-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -70,6 +60,13 @@
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
             </dependency>
+            <!--springcloud Alibaba nacos config统一配置中心-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            
             <!--rabbitmq-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -168,7 +165,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.7.0</version>
                     <configuration>
                         <!--资源版本-->
                         <source>${java.version}</source>

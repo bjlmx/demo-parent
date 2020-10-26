@@ -1,3 +1,4 @@
+
 server:
   port: 2020
 spring:
@@ -9,6 +10,11 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.159.128:8848
+#        配置中心地址
+      config:
+        server-addr: 192.168.159.128:8848
+#        配置文件格式
+        file-extension: properties
 dubbo:
   cloud:
     subscribed-services: demo-micro-dubbo-provider
