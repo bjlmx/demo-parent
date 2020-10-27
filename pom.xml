@@ -29,7 +29,7 @@
         <module>demo-common</module>
         <module>demo-rabbitmq-provider</module>
         <module>demo-rabbitmq-consumer</module>
-        <module>demo-common-api</module>
+        <module>demo-interface-api</module>
         <module>demo-domain</module>
         <module>demo-micro-dubbo-consumer</module>
         <module>demo-micro-dubbo-provider</module>

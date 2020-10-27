@@ -44,7 +44,7 @@
         <!--公共接口api模块-->
         <dependency>
             <groupId>com.study.demo</groupId>
-            <artifactId>demo-common-api</artifactId>
+            <artifactId>demo-interface-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--MySQL-->

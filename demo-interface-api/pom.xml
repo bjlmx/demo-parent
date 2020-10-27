@@ -9,8 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>demo-common-api</artifactId>
-    <name>demo-common-api</name>
+    <artifactId>demo-interface-api</artifactId>
+    <name>demo-interface-api</name>
     <description>公共api接口项目</description>
 
     <properties>

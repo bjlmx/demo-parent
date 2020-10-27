@@ -18,6 +18,7 @@ import com.study.demo.demomicrodubboprovider.mapper.UserCsvMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Baijl
@@ -27,15 +28,18 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Service
 @Slf4j
+//多应用单一数据源可以使用本地事务
+@Transactional
 public class UserCsvServiceImpl extends ServiceImpl<UserCsvMapper, UserCsv> implements UserCsvService {
     @Autowired
     private UserCsvMapper userCsvMapper;
     @Override
     public boolean saveEntity(UserCsv userCsv) {
         if(StrUtil.equals(userCsv.getName(),"consumer")){
+
             log.error("有属性为空，抛出异常");
             throw BusinessException.get("有属性为空，抛出异常");
         }
-        return userCsvMapper.insert(userCsv) > 0;
+        return userCsvMapper.insert(userCsv) >0;
     }
 }
