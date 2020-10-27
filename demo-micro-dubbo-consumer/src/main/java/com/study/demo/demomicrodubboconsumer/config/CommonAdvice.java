@@ -27,7 +27,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author Baijl
  * 2020/10/16
  * 17:14
- * @description
+ * @description 统一异常和返回值处理
  */
 @RestControllerAdvice
 public class CommonAdvice implements ResponseBodyAdvice {
