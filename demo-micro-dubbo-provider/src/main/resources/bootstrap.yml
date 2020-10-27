@@ -8,20 +8,40 @@ spring:
     allow-bean-definition-overriding: true
   cloud:
     nacos:
+#      注册中心地址
       server-addr: 192.168.159.128:8848
 #      配置中心地址
       config:
         server-addr: 192.168.159.128:8848
+#        数据库配置
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.159.128:3307/dockertest?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+#        dubbo配置
 dubbo:
   protocol:
     name: dubbo
     port: -1
-#  注册中心地址
+#  dubbo注册中心地址
   registry:
     address: spring-cloud://192.168.159.128
   application:
     qos-enable: false
   scan:
+#    dubbo扫描包地址
     base-packages: com.study.demo.demomicrodubboprovider.impl
   cloud:
+#    服务暴露名称
     subscribed-services: demo-micro-dubbo-provider
+mybatis-plus:
+  configuration:
+#    mybatisplus日志配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+#      表名下划线转换
+      table-underline: true
+#      全局id自增
+      id-type: auto

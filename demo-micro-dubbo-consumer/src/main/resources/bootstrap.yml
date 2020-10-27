@@ -15,6 +15,12 @@ spring:
         server-addr: 192.168.159.128:8848
 #        配置文件格式
         file-extension: properties
+  #        数据库配置
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.159.128:3307/dockertest?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
 dubbo:
   cloud:
     subscribed-services: demo-micro-dubbo-provider

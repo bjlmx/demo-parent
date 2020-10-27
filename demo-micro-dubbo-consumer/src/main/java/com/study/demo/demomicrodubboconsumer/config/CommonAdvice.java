@@ -1,3 +1,4 @@
+
 /**************************************************************************
  * Copyright (c) 2006-2020 ZheJiang Electronic Port, Inc.
  * All rights reserved.
@@ -7,7 +8,7 @@
  *           情况下，任何企业和个人，不能获取、阅读、安装、传播本软件涉及的任何受知
  *           识产权保护的内容。                            
  ***************************************************************************/
-package com.study.demo.demohome.config;
+package com.study.demo.demomicrodubboconsumer.config;
 
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.exceptions.ExceptionUtil;

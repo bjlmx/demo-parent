@@ -18,6 +18,23 @@
     </properties>
 
     <dependencies>
+        <!--common-->
+        <dependency>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--demo-domain-->
+        <dependency>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -29,6 +46,17 @@
             <groupId>com.study.demo</groupId>
             <artifactId>demo-common-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--MySQL-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!--hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
 
         <!--springcloudAlibaba start-->
@@ -54,6 +82,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--数据库连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
         <!--springboot end-->
     </dependencies>

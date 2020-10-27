@@ -48,22 +48,19 @@ public class AopConfig {
     //前置通知
     @Before("hasAnnotation()")
     public void haha(JoinPoint joinPoint) {
-        log.info("前置通知，有注解");
-        System.out.println("方法名："+joinPoint.getSignature().getDeclaringTypeName() + "."+joinPoint.getSignature());
+        log.info("前置通知，有注解；方法名：+"+joinPoint.getSignature().getDeclaringTypeName() + "."+joinPoint.getSignature());
     }
 
     //前置通知
     @Before("console()")
     public void auth() {
         log.info("前置通知，假装校验了个权限");
-        System.out.println("这是一条前置通知");
     }
 
     //后置通知
     @Before("console()")
     public void after() {
         log.info("后置通知，用于回收某些资源");
-        System.out.println("这是一条后置通知");
     }
 
     //异常通知

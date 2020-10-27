@@ -24,6 +24,23 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--common-->
+        <dependency>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <!--demo-domain-->
+        <dependency>
+            <groupId>com.study.demo</groupId>
+            <artifactId>demo-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
